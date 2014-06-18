@@ -26,9 +26,12 @@ $(document).ready(function(){
 	  		 	$("input").val('');
 	  	}
 	  		else {
+	  		$("input").val('');
+	  		$("form").submit(function(e) {
+    		e.preventDefault();
+  			});
 	  		var error = alert("Put in a number 1-100");
 	  		error;
-	  		$("input").val('');
 	  	}
 	};
 $("#userGuess").keydown(function(event) {
@@ -36,9 +39,6 @@ $("#userGuess").keydown(function(event) {
 				guess();
 			}
 		});
-$("#guessForm").submit(function(e) {
-    e.preventDefault();
-  });
 $("#guessButton").mousedown(function(event){
 	guess();
 })
