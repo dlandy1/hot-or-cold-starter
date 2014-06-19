@@ -4,10 +4,17 @@ $(document).ready(function(){
     		e.preventDefault();
   			})
 	var trials = [];
+	var creatNumber = function() {
+  		numb= Math.floor((Math.random() * (100))+1);
+  	};
+  	creatNumber();
+  	console.log(numb);
 	var newGame = function(){
 		$("#guessList li").remove();
 		$("#feedback").text("Make your Guess!");
 		$("#count").text(trials.length = 0);
+		creatNumber();
+		console.log(numb);
 	};
 	/*--- Display information modal box ---*/
   	$(".what").click(function(){
@@ -21,11 +28,6 @@ $(document).ready(function(){
   	});
   	/*--- Creating Random Number ---*/
   	var numb; 
-  	var creatNumber = function() {
-  		numb= Math.floor((Math.random() * (100))+1);
-  	};
-  	creatNumber();
-  	console.log(numb);
   	/*--- Guessing Function ---*/
   	var conf;
   	var guess = function() {
