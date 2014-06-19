@@ -1,5 +1,8 @@
 
 $(document).ready(function(){
+	$("form").submit(function(e) {
+    		e.preventDefault();
+  			})
 	var newGame = function(){
 		$("#guessList li").remove();
 		$("#feedback").text("Make your Guess!");
@@ -22,13 +25,17 @@ $(document).ready(function(){
   	creatNumber();
   	console.log(numb);
   	/*--- Guessing Function ---*/
+  	var trials = [];
+  	var conf;
   	var guess = function() {
 	  		var value = $("#userGuess").val().trim();
 	  		var item = '<li>'+value+'</li>';
 	  		var difference = value - numb;
-	  		 if (value%1 ==0 && value <= 100 && value >= 0 && value !== "") {
+	  		 if (value%1 == 0 && value <= 100 && value >= 0 && value !== "") {
 	  		 	$( "#guessList").append(item);
 	  		 	$("#userGuess").val(' ');
+	  		 	trials.push(value);
+	  		 	$("#count").text(trials.length);
 	  		 	if (difference<=1 && difference >= -1 && difference !==0){
 	  		 		$("#feedback").text("Almost on fire!");
 	  		 	}
@@ -45,6 +52,10 @@ $(document).ready(function(){
 	  		 	}
 	  		 	 else if (value == numb){
 	  		 		  $("#feedback").text("Correct");
+	  		 		 conf = confirm("Correct...new game?");
+	  		 		  if (conf === true) {
+	  		 		  	newGame();
+	  		 		  }
 	  		 	}
 	  		 	else {
 	  		 		$("#feedback").text("Cold");
@@ -52,9 +63,6 @@ $(document).ready(function(){
 	  	}
 	  		else {
 	  		$("#userGuess").val(' ');
-	  		$("form").submit(function(e) {
-    		e.preventDefault();
-  			});
 	  		var error = alert("Put in a number 1-100");
 	  		error;
 	  	}
@@ -63,6 +71,9 @@ $(document).ready(function(){
 $("#userGuess").keydown(function(event) {
 	  		if (event.which == 13){
 				guess();
+				$("form").submit(function(e) {
+    		e.preventDefault();
+  			})
 			}
 		});
 /*--- When guess button is clicked on guess---*/
