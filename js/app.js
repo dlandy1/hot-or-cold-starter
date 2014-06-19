@@ -28,7 +28,7 @@ $(document).ready(function(){
 	  		var difference = value - numb;
 	  		 if (value%1 ==0 && value <= 100 && value >= 0 && value !== "") {
 	  		 	$( "#guessList").append(item);
-	  		 	$("input").val('');
+	  		 	$("#userGuess").val(' ');
 	  		 	if (difference<=1 && difference >= -1 && difference !==0){
 	  		 		$("#feedback").text("Almost on fire!");
 	  		 	}
@@ -51,7 +51,7 @@ $(document).ready(function(){
 	  		 	}
 	  	}
 	  		else {
-	  		$("input").val('');
+	  		$("#userGuess").val(' ');
 	  		$("form").submit(function(e) {
     		e.preventDefault();
   			});
