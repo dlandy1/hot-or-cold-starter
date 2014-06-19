@@ -3,9 +3,11 @@ $(document).ready(function(){
 	$("form").submit(function(e) {
     		e.preventDefault();
   			})
+	var trials = [];
 	var newGame = function(){
 		$("#guessList li").remove();
 		$("#feedback").text("Make your Guess!");
+		$("#count").text(trials.length = 0);
 	};
 	/*--- Display information modal box ---*/
   	$(".what").click(function(){
@@ -25,7 +27,6 @@ $(document).ready(function(){
   	creatNumber();
   	console.log(numb);
   	/*--- Guessing Function ---*/
-  	var trials = [];
   	var conf;
   	var guess = function() {
 	  		var value = $("#userGuess").val().trim();
@@ -71,9 +72,6 @@ $(document).ready(function(){
 $("#userGuess").keydown(function(event) {
 	  		if (event.which == 13){
 				guess();
-				$("form").submit(function(e) {
-    		e.preventDefault();
-  			})
 			}
 		});
 /*--- When guess button is clicked on guess---*/
