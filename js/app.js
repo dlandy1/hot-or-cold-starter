@@ -14,16 +14,18 @@ $(document).ready(function(){
   	var numb; 
   	var creatNumber = function() {
   		numb= Math.floor((Math.random() * (100))+1);
-  		numb= +numb;
   	};
   	creatNumber();
   	console.log(numb);
-  	var guess = function(value) {
+  	var guess = function() {
 	  		var value = $("#userGuess").val().trim();
 	  		var item = '<li>'+value+'</li>';
 	  		 if (value%1 ==0 && value <= 100 && value >= 0 && value !== "") {
 	  		 	$( "#guessList").append(item);
 	  		 	$("input").val('');
+	  		 	if (value == numb){
+	  		 		  $("#feedback").text("Correct");
+	  		 	}
 	  	}
 	  		else {
 	  		$("input").val('');
