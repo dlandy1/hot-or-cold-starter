@@ -1,6 +1,9 @@
 
 $(document).ready(function(){
-	
+	var newGame = function(){
+		$("#guessList li").remove();
+		$("#feedback").text("Make your Guess!");
+	};
 	/*--- Display information modal box ---*/
   	$(".what").click(function(){
     	$(".overlay").fadeIn(1000);
@@ -11,12 +14,14 @@ $(document).ready(function(){
   	$("a.close").click(function(){
   		$(".overlay").fadeOut(1000);
   	});
+  	/*--- Creating Random Number ---*/
   	var numb; 
   	var creatNumber = function() {
   		numb= Math.floor((Math.random() * (100))+1);
   	};
   	creatNumber();
   	console.log(numb);
+  	/*--- Guessing Function ---*/
   	var guess = function() {
 	  		var value = $("#userGuess").val().trim();
 	  		var item = '<li>'+value+'</li>';
@@ -54,13 +59,18 @@ $(document).ready(function(){
 	  		error;
 	  	}
 	};
+	/*--- When enter key is hit guess ---*/
 $("#userGuess").keydown(function(event) {
 	  		if (event.which == 13){
 				guess();
 			}
 		});
+/*--- When guess button is clicked on guess---*/
 $("#guessButton").mousedown(function(event){
 	guess();
+})
+$(".new").mousedown(function(event){
+	newGame();
 })
 });
 
