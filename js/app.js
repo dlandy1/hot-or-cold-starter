@@ -67,6 +67,12 @@ $(document).ready(function(){
 	  		 		  if (conf === true) {
 	  		 		  	newGame();
 	  		 		  }
+	  		 		  else{
+	  		 		  	$( "#guessList").hide();
+	  		 		  	$("section p").text("Game Over");
+	  		 		  	$("input").hide();
+
+	  		 		  }
 	  		 	}
 	  	}
 	  		else {
