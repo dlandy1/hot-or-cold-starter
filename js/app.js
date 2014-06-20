@@ -68,10 +68,8 @@ $(document).ready(function(){
 	  		 		  	newGame();
 	  		 		  }
 	  		 		  else{
-	  		 		  	$( "#guessList").hide();
 	  		 		  	$("section p").text("Game Over");
 	  		 		  	$("input").hide();
-
 	  		 		  }
 	  		 	}
 	  	}
